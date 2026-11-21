@@ -771,3 +771,28 @@ body:has(dialog[open]) {
 .order-dialog > p {
   font-size: 0.85rem;
 }
+
+/* Состояния интерактивного каталога и формы. */
+#filters-form { display: grid; gap: 20px; }
+.product-card h3 a { text-decoration: none; }
+.product-card__description { flex: 1; color: var(--muted); font-size: 0.85rem; }
+.product-status { color: var(--muted); font-size: 0.75rem; }
+.product-prices { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+.product-prices strong { font-size: 1.25rem; }
+.product-prices del { color: var(--muted); font-size: 0.8rem; }
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.empty-state { padding: 36px 24px; margin-block: 24px 60px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.catalog-count { margin-bottom: 0; font-size: 0.85rem; color: var(--muted); }
+.site-message { position: fixed; z-index: 100; bottom: 20px; right: 20px; max-width: min(420px, calc(100vw - 40px)); padding: 18px 22px; margin: 0; color: #fff; background: #173e36; border: 1px solid #a6bda0; border-radius: 10px; box-shadow: 0 8px 28px #0002; }
+.quick-image { width: 100%; max-height: 260px; object-fit: contain; margin-block: 20px; background: #fff; border-radius: 8px; }
+.order-fields { margin: 0; padding: 0; border: 0; min-width: 0; }
+.order-fields > .order-form { margin: 0; }
+.order-summary { border-block: 1px solid var(--border); padding-block: 20px; }
+.order-summary p { margin-bottom: 10px; }
+.confirmation-details { margin-block: 24px; }
+.confirmation-details dt { color: var(--muted); font-size: 0.8rem; }
+.confirmation-details dd { margin: 0 0 12px; overflow-wrap: anywhere; }
+.notice { padding-block: 20px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.form-field .field-error { min-height: 1em; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
