@@ -26,7 +26,9 @@ function createProductSummary(product) {
 }
 
 const message = document.querySelector('[data-product-summary]');
-if (message) message.textContent = createProductSummary(product);
+if (message) {
+  message.textContent = `${products.length} моделей · ${countAvailableProducts(products)} в наличии · средняя цена ${formatPrice(calculateAveragePrice(products))}`;
+}
 
 const menu = document.querySelector('.nav-menu');
 const desktopMenu = matchMedia('(min-width: 768px)');
