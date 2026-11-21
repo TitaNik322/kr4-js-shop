@@ -23,6 +23,9 @@ function openProductDialog(id, trigger) {
   const order = dialog.querySelector('[data-quick-order]');
   order.href = `order.html?product=${product.id}`;
   order.hidden = !product.isAvailable;
+  const actions = dialog.querySelector('.form-actions');
+  actions.querySelector('[data-action="add-to-cart"]')?.remove();
+  actions.prepend(createCartButton(product));
   openDialog(dialog, trigger);
 }
 
@@ -31,13 +34,46 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.querySelectorAll('[data-close-dialog]').forEach((button) => {
       button.addEventListener('click', () => dialog.close());
     });
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const controls = [
+        ...dialog.querySelectorAll(
+          'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled)',
+        ),
+      ].filter((element) => element.getClientRects().length);
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
     dialog.addEventListener('click', (event) => {
       if (event.target !== dialog) return;
       const bounds = dialog.getBoundingClientRect();
-      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+      if (
+        event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom
+      )
+        dialog.close();
     });
     dialog.addEventListener('close', () => {
-      if (dialogTrigger?.isConnected) dialogTrigger.focus();
+      if (dialog.dataset.skipReturnFocus === 'true') delete dialog.dataset.skipReturnFocus;
+      else {
+        const id = dialogTrigger?.dataset.productId;
+        const replacement = [...document.querySelectorAll('[data-action="quick-view"]')].find(
+          (button) => button.dataset.productId === id,
+        );
+        const target = dialogTrigger?.isConnected
+          ? dialogTrigger
+          : replacement || document.querySelector('#catalog-search');
+        target?.focus();
+      }
     });
   });
   document.addEventListener('click', (event) => {
