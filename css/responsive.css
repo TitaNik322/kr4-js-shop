@@ -291,3 +291,54 @@ video {
     content-visibility: visible;
   }
 }
+
+@media (min-width: 640px) {
+  .cart-item {
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    gap: 22px;
+  }
+  .cart-item img {
+    height: 100px;
+  }
+  .cart-item__total {
+    grid-column: auto;
+  }
+}
+@media (min-width: 768px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .nav-menu,
+  .nav-menu[open] {
+    width: 100%;
+    order: 3;
+  }
+  .site-nav__list {
+    justify-content: center;
+  }
+  html {
+    scroll-padding-top: 160px;
+  }
+}
+@media (min-width: 1024px) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+  .nav-menu,
+  .nav-menu[open] {
+    width: auto;
+    order: initial;
+  }
+  .cart-layout {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+  .cart-summary {
+    position: sticky;
+    top: 120px;
+  }
+  html {
+    scroll-padding-top: 110px;
+  }
+}

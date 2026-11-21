@@ -1,121 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="ru">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Поиск по названию, выбор переключателей и сортировка клавиатур по цене." name="description"/>
-<meta content="#173e36" name="theme-color"/>
-<title>Каталог клавиатур — KeyboardShop</title>
-<link href="images/favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="css/style.css" rel="stylesheet"/>
-<link href="css/responsive.css" rel="stylesheet"/>
-<script defer="" src="js/data.js"></script>
-<script defer="" src="js/main.js"></script>
-<script defer="" src="js/catalog.js"></script>
-<script defer="" src="js/modal.js"></script>
-<script defer="" src="js/validation.js"></script>
-</head>
-<body id="top">
-<a class="skip-link" href="#main">Перейти к содержимому</a>
-<div class="announcement">Хороший день начинается с хорошей клавиатуры ↗</div>
-<header class="site-header">
-<div class="container site-header__inner">
-<a class="site-logo" href="index.html">
-<span aria-hidden="true" class="logo-key"> k. </span>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="Поиск по названию, выбор переключателей и сортировка клавиатур по цене."
+      name="description"
+    />
+    <meta content="#173e36" name="theme-color" />
+    <title>Каталог клавиатур — KeyboardShop</title>
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script defer="" src="js/data.js"></script>
+    <script defer="" src="js/main.js"></script>
+    <script defer="" src="js/catalog.js"></script>
+    <script defer="" src="js/cart.js"></script>
+    <script defer="" src="js/modal.js"></script>
+    <script defer="" src="js/validation.js"></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <div class="announcement">Хороший день начинается с хорошей клавиатуры ↗</div>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html">
+          <span aria-hidden="true" class="logo-key"> k. </span>
           KeyboardShop
           <span aria-hidden="true" class="logo-dot"> ® </span>
-</a>
-<details class="nav-menu">
-<summary>
+        </a>
+        <details class="nav-menu">
+          <summary>
             Меню
             <span aria-hidden="true"> ☰ </span>
-</summary>
-<nav aria-label="Основная навигация">
-<ul class="site-nav__list">
-<li>
-<a href="index.html"> Главная </a>
-</li>
-<li>
-<a aria-current="page" href="catalog.html"> Каталог </a>
-</li>
-<li>
-<a href="order.html"> Заявка </a>
-</li>
-<li>
-<a href="contacts.html"> Контакты </a>
-</li>
-</ul>
-</nav>
-</details>
-<a class="header-link" href="catalog.html"> Выбрать клавиатуру ↗ </a>
-</div>
-</header>
-<main class="container" id="main" tabindex="-1">
-<nav aria-label="Хлебные крошки" class="breadcrumbs"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span>Каталог</span></nav>
-<section class="page-heading"><p class="eyebrow">Твой следующий любимый инструмент</p><h1>Клавиатуры<span class="accent">.</span></h1><p>Разные форматы. Разный характер. Выбирай свой.</p></section>
-<div class="catalog-layout">
-<aside class="catalog-filters">
-<details class="filter-panel"><summary>Фильтры <span aria-hidden="true">+</span></summary>
-<form id="filters-form">
-<div class="form-field"><label for="catalog-search">Поиск по названию</label><input autocomplete="off" id="catalog-search" list="product-titles" maxlength="80" name="query" placeholder="Например, Keychron" type="search"/><datalist id="product-titles"></datalist></div>
-<div class="form-field"><label for="category-filter">Переключатели</label><select id="category-filter" name="category"><option value="all">Все категории</option><option value="mechanical">Механические</option><option value="optical">Оптические</option><option value="scissor">Ножничные</option></select></div>
-<label class="checkbox"><input name="available" type="checkbox"/>Только в наличии</label>
-<div class="price-fields">
-<div class="form-field"><label for="price-from">Цена от, ₽</label><input id="price-from" max="1000000" min="0" name="min" placeholder="0" step="1" type="number"/></div>
-<div class="form-field"><label for="price-to">Цена до, ₽</label><input id="price-to" max="1000000" min="0" name="max" placeholder="Без ограничений" step="1" type="number"/></div>
-</div>
-<p class="field-error" id="filter-error" role="status"></p>
-<div class="filter-actions"><button class="text-button" type="reset">Сбросить фильтры</button></div>
-</form>
-</details>
-<p class="filter-note">Механика — для выразительного нажатия, оптика — для быстрого отклика, ножничные клавиши — для низкого профиля.</p>
-</aside>
-<section aria-labelledby="collection-title" class="catalog-products">
-<div class="catalog-toolbar"><div><h2 id="collection-title">Коллекция</h2><p aria-live="polite" class="catalog-count" id="result-count" role="status"></p></div><div><label for="sort-select">Порядок</label><select id="sort-select"><option value="default">По умолчанию</option><option value="price-asc">Сначала дешевле</option><option value="price-desc">Сначала дороже</option><option value="title-asc">По названию А–Я</option></select></div></div>
-<div class="products-grid" data-products-container="" id="catalog-grid"></div>
-<div class="empty-state" hidden="" id="catalog-empty"><p class="eyebrow">Начнём заново?</p><h3>Пока ничего не нашлось</h3><p>Попробуй другое название, категорию или диапазон цены.</p><button class="button" data-reset-filters="" type="button">Показать все модели</button></div>
-</section>
-</div>
-</main>
-<footer class="site-footer" id="contacts">
-<div class="container footer-grid">
-<div>
-<a class="site-logo" href="index.html"> KeyboardShop® </a>
-<p>
+          </summary>
+          <nav aria-label="Основная навигация">
+            <ul class="site-nav__list">
+              <li>
+                <a href="index.html"> Главная </a>
+              </li>
+              <li>
+                <a aria-current="page" href="catalog.html"> Каталог </a>
+              </li>
+              <li>
+                <a href="order.html"> Заявка </a>
+              </li>
+              <li>
+                <a href="contacts.html"> Контакты </a>
+              </li>
+            </ul>
+          </nav>
+        </details>
+        <div class="header-actions">
+          <a aria-label="Избранное" class="header-favorites" href="catalog.html?favorites=1"
+            >♡ <span data-favorite-count="">0</span></a
+          ><a class="header-cart" href="cart.html">Корзина <span data-cart-count="">0</span></a
+          ><button
+            aria-label="Включить тёмную тему"
+            aria-pressed="false"
+            class="theme-toggle"
+            data-theme-toggle=""
+            type="button"
+          >
+            ☾
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="container" id="main" tabindex="-1">
+      <nav aria-label="Хлебные крошки" class="breadcrumbs">
+        <a href="index.html">Главная</a><span aria-hidden="true">/</span><span>Каталог</span>
+      </nav>
+      <section class="page-heading">
+        <p class="eyebrow">Твой следующий любимый инструмент</p>
+        <h1>Клавиатуры<span class="accent">.</span></h1>
+        <p>Разные форматы. Разный характер. Выбирай свой.</p>
+      </section>
+      <div class="catalog-layout">
+        <aside class="catalog-filters">
+          <details class="filter-panel">
+            <summary>Фильтры <span aria-hidden="true">+</span></summary>
+            <form id="filters-form">
+              <div class="form-field">
+                <label for="catalog-search">Поиск по названию</label
+                ><input
+                  autocomplete="off"
+                  id="catalog-search"
+                  list="product-titles"
+                  maxlength="80"
+                  name="query"
+                  placeholder="Например, Keychron"
+                  type="search"
+                /><datalist id="product-titles"></datalist>
+              </div>
+              <div class="form-field">
+                <label for="category-filter">Переключатели</label
+                ><select id="category-filter" name="category">
+                  <option value="all">Все категории</option>
+                  <option value="mechanical">Механические</option>
+                  <option value="optical">Оптические</option>
+                  <option value="scissor">Ножничные</option>
+                </select>
+              </div>
+              <label class="checkbox"
+                ><input name="available" type="checkbox" />Только в наличии</label
+              ><label class="checkbox"
+                ><input name="favorites" type="checkbox" />Только избранное</label
+              >
+              <div class="price-fields">
+                <div class="form-field">
+                  <label for="price-from">Цена от, ₽</label
+                  ><input
+                    aria-describedby="filter-error"
+                    id="price-from"
+                    max="1000000"
+                    min="0"
+                    name="min"
+                    placeholder="0"
+                    step="1"
+                    type="number"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="price-to">Цена до, ₽</label
+                  ><input
+                    aria-describedby="filter-error"
+                    id="price-to"
+                    max="1000000"
+                    min="0"
+                    name="max"
+                    placeholder="Без ограничений"
+                    step="1"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <p class="field-error" id="filter-error" role="status"></p>
+              <div class="filter-actions">
+                <button class="text-button" type="reset">Сбросить фильтры</button>
+              </div>
+            </form>
+          </details>
+          <p class="filter-note">
+            Механика — для выразительного нажатия, оптика — для быстрого отклика, ножничные клавиши
+            — для низкого профиля.
+          </p>
+        </aside>
+        <section aria-labelledby="collection-title" class="catalog-products">
+          <div class="catalog-toolbar">
+            <div>
+              <h2 id="collection-title">Коллекция</h2>
+              <p aria-live="polite" class="catalog-count" id="result-count" role="status"></p>
+            </div>
+            <div>
+              <label for="sort-select">Порядок</label
+              ><select id="sort-select">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">Сначала дешевле</option>
+                <option value="price-desc">Сначала дороже</option>
+                <option value="title-asc">По названию А–Я</option>
+              </select>
+            </div>
+          </div>
+          <div class="products-grid" data-products-container="" id="catalog-grid"></div>
+          <nav aria-label="Страницы каталога" class="pagination" id="catalog-pagination"></nav>
+          <div class="empty-state" hidden="" id="catalog-empty">
+            <p class="eyebrow">Начнём заново?</p>
+            <h3>Пока ничего не нашлось</h3>
+            <p>Попробуй другое название, категорию или диапазон цены.</p>
+            <button class="button" data-reset-filters="" type="button">Показать все модели</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer" id="contacts">
+      <div class="container footer-grid">
+        <div>
+          <a class="site-logo" href="index.html"> KeyboardShop® </a>
+          <p>
             Найди свой ритм.
-            <br/>
+            <br />
             Начни с первого нажатия.
           </p>
-</div>
-<nav aria-label="Навигация в подвале">
-<a href="catalog.html"> Каталог </a>
-<a href="order.html"> Оформить заявку </a>
-<a href="contacts.html#feedback"> Обратная связь </a>
-</nav>
-<div>
-<p class="eyebrow">В твоём ритме</p>
-<p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <a href="catalog.html"> Каталог </a>
+          <a href="order.html"> Оформить заявку </a>
+          <a href="contacts.html#feedback"> Обратная связь </a>
+        </nav>
+        <div>
+          <p class="eyebrow">В твоём ритме</p>
+          <p>
             Для работы, игр
-            <br/>
+            <br />
             и больших идей.
           </p>
-<a href="#top"> Вернуться наверх ↑ </a>
-</div>
-</div>
-<div class="container footer-bottom">
-<span> © 2026 KeyboardShop </span>
-<span> Каждое нажатие — твой характер. </span>
-</div>
-</footer>
-<p aria-live="polite" class="site-message" hidden="" id="site-message" role="status"></p>
-<noscript><p class="container notice">Для каталога и формы включите JavaScript в браузере.</p></noscript>
-<dialog aria-labelledby="quick-title" class="order-dialog product-dialog" id="product-dialog">
-<div class="dialog-heading"><h2 id="quick-title">Быстрый просмотр</h2><button aria-label="Закрыть окно" class="icon-button" data-close-dialog="" type="button">×</button></div>
-<img alt="" class="quick-image" data-quick-image="" height="500" width="800"/>
-<p class="eyebrow" data-quick-category=""></p><p data-quick-description=""></p>
-<p class="product-detail__price" data-quick-price=""></p><p data-quick-status=""></p>
-<div class="form-actions"><a class="button" data-quick-link="" href="product.html">Все характеристики ↗</a><a class="text-link" data-quick-order="" href="order.html">Оставить заявку</a></div>
-</dialog>
-</body>
+          <a href="#top"> Вернуться наверх ↑ </a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span> © 2026 KeyboardShop </span>
+        <span> Каждое нажатие — твой характер. </span>
+        <a href="https://github.com/TitaNik322/kr4-js-shop#фотографии">Источники фотографий</a>
+      </div>
+    </footer>
+    <p aria-live="polite" class="site-message" hidden="" id="site-message" role="status"></p>
+    <noscript
+      ><p class="container notice">
+        Для каталога и формы включите JavaScript в браузере.
+      </p></noscript
+    >
+    <dialog aria-labelledby="quick-title" class="order-dialog product-dialog" id="product-dialog">
+      <div class="dialog-heading">
+        <h2 id="quick-title">Быстрый просмотр</h2>
+        <button aria-label="Закрыть окно" class="icon-button" data-close-dialog="" type="button">
+          ×
+        </button>
+      </div>
+      <img alt="" class="quick-image" data-quick-image="" height="500" width="800" />
+      <p class="eyebrow" data-quick-category=""></p>
+      <p data-quick-description=""></p>
+      <p class="product-detail__price" data-quick-price=""></p>
+      <p data-quick-status=""></p>
+      <div class="form-actions">
+        <a class="button" data-quick-link="" href="product.html">Все характеристики ↗</a
+        ><a class="text-link" data-quick-order="" href="order.html">Оставить заявку</a>
+      </div>
+    </dialog>
+  </body>
 </html>

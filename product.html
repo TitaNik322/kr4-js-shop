@@ -1,103 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="ru">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Формат, переключатели, подключение и стоимость клавиатуры KeyboardShop." name="description"/>
-<meta content="#173e36" name="theme-color"/>
-<title>Клавиатура — KeyboardShop</title>
-<link href="images/favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="css/style.css" rel="stylesheet"/>
-<link href="css/responsive.css" rel="stylesheet"/>
-<script defer="" src="js/data.js"></script>
-<script defer="" src="js/main.js"></script>
-<script defer="" src="js/catalog.js"></script>
-<script defer="" src="js/modal.js"></script>
-<script defer="" src="js/validation.js"></script>
-</head>
-<body id="top">
-<a class="skip-link" href="#main">Перейти к содержимому</a>
-<div class="announcement">Хороший день начинается с хорошей клавиатуры ↗</div>
-<header class="site-header">
-<div class="container site-header__inner">
-<a class="site-logo" href="index.html">
-<span aria-hidden="true" class="logo-key"> k. </span>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="Формат, переключатели, подключение и стоимость клавиатуры KeyboardShop."
+      name="description"
+    />
+    <meta content="#173e36" name="theme-color" />
+    <title>Клавиатура — KeyboardShop</title>
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script defer="" src="js/data.js"></script>
+    <script defer="" src="js/main.js"></script>
+    <script defer="" src="js/catalog.js"></script>
+    <script defer="" src="js/cart.js"></script>
+    <script defer="" src="js/modal.js"></script>
+    <script defer="" src="js/validation.js"></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <div class="announcement">Хороший день начинается с хорошей клавиатуры ↗</div>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html">
+          <span aria-hidden="true" class="logo-key"> k. </span>
           KeyboardShop
           <span aria-hidden="true" class="logo-dot"> ® </span>
-</a>
-<details class="nav-menu">
-<summary>
+        </a>
+        <details class="nav-menu">
+          <summary>
             Меню
             <span aria-hidden="true"> ☰ </span>
-</summary>
-<nav aria-label="Основная навигация">
-<ul class="site-nav__list">
-<li>
-<a href="index.html"> Главная </a>
-</li>
-<li>
-<a href="catalog.html"> Каталог </a>
-</li>
-<li>
-<a href="order.html"> Заявка </a>
-</li>
-<li>
-<a href="contacts.html"> Контакты </a>
-</li>
-</ul>
-</nav>
-</details>
-<a class="header-link" href="catalog.html"> Выбрать клавиатуру ↗ </a>
-</div>
-</header>
-<main class="container" id="main" tabindex="-1">
-<nav aria-label="Хлебные крошки" class="breadcrumbs"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span><a href="catalog.html">Каталог</a><span aria-hidden="true">/</span><span data-product-breadcrumb="">Клавиатура</span></span></nav>
-<section class="product-detail" data-product-detail="">
-<div class="product-detail__visual"><img alt="Lynace K1 Dragon" class="product-detail__image" data-detail-image="" fetchpriority="high" height="500" src="images/product-1-light-800.webp" width="800"/></div>
-<div class="product-detail__info"><p class="eyebrow" data-detail-category=""></p><h1 data-detail-title="">Клавиатура</h1><p class="product-detail__description" data-detail-description=""></p><p class="product-detail__price" data-detail-price=""></p><p data-detail-status=""></p><p class="form-note" data-product-summary=""></p><div class="product-detail__actions"><a class="button" data-detail-order="" href="order.html">Оставить заявку ↗</a><button class="text-button" data-open-product="" type="button">Быстрый просмотр</button></div></div>
-</section>
-<section class="section" data-detail-specs=""><h2>Всё по делу.</h2><div class="table-wrap"><table class="spec-table"><caption>Характеристики выбранной клавиатуры</caption><thead><tr><th scope="col">Параметр</th><th scope="col">Значение</th></tr></thead><tbody data-specs-body=""></tbody></table></div></section>
-<section class="empty-state" data-product-error="" hidden=""><h1>Товар не найден</h1><p>Ссылка могла устареть. В каталоге есть другие модели.</p><a class="button" href="catalog.html">Открыть каталог</a></section>
-</main>
-<footer class="site-footer" id="contacts">
-<div class="container footer-grid">
-<div>
-<a class="site-logo" href="index.html"> KeyboardShop® </a>
-<p>
+          </summary>
+          <nav aria-label="Основная навигация">
+            <ul class="site-nav__list">
+              <li>
+                <a href="index.html"> Главная </a>
+              </li>
+              <li>
+                <a href="catalog.html"> Каталог </a>
+              </li>
+              <li>
+                <a href="order.html"> Заявка </a>
+              </li>
+              <li>
+                <a href="contacts.html"> Контакты </a>
+              </li>
+            </ul>
+          </nav>
+        </details>
+        <div class="header-actions">
+          <a aria-label="Избранное" class="header-favorites" href="catalog.html?favorites=1"
+            >♡ <span data-favorite-count="">0</span></a
+          ><a class="header-cart" href="cart.html">Корзина <span data-cart-count="">0</span></a
+          ><button
+            aria-label="Включить тёмную тему"
+            aria-pressed="false"
+            class="theme-toggle"
+            data-theme-toggle=""
+            type="button"
+          >
+            ☾
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="container" id="main" tabindex="-1">
+      <nav aria-label="Хлебные крошки" class="breadcrumbs">
+        <a href="index.html">Главная</a><span aria-hidden="true">/</span
+        ><span
+          ><a href="catalog.html">Каталог</a><span aria-hidden="true">/</span
+          ><span data-product-breadcrumb="">Клавиатура</span></span
+        >
+      </nav>
+      <section class="product-detail" data-product-detail="">
+        <div class="product-detail__visual">
+          <img
+            alt="Lynace K1 Dragon"
+            class="product-detail__image"
+            data-detail-image=""
+            fetchpriority="high"
+            height="500"
+            src="images/product-1-light-800.webp"
+            width="800"
+          />
+        </div>
+        <div class="product-detail__info">
+          <p class="eyebrow" data-detail-category=""></p>
+          <h1 data-detail-title="">Клавиатура</h1>
+          <p class="product-detail__description" data-detail-description=""></p>
+          <p class="product-detail__price" data-detail-price=""></p>
+          <p data-detail-status=""></p>
+          <p class="form-note" data-product-summary=""></p>
+          <div class="product-detail__actions">
+            <button class="button" data-action="add-to-cart" data-detail-cart="" type="button">
+              В корзину</button
+            ><button class="text-button" data-open-product="" type="button">Быстрый просмотр</button
+            ><button aria-pressed="false" class="text-button" data-detail-favorite="" type="button">
+              В избранное
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="section" data-detail-specs="">
+        <h2>Всё по делу.</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <caption>
+              Характеристики выбранной клавиатуры
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Параметр</th>
+                <th scope="col">Значение</th>
+              </tr>
+            </thead>
+            <tbody data-specs-body=""></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="empty-state" data-product-error="" hidden="">
+        <h1>Товар не найден</h1>
+        <p>Ссылка могла устареть. В каталоге есть другие модели.</p>
+        <a class="button" href="catalog.html">Открыть каталог</a>
+      </section>
+    </main>
+    <footer class="site-footer" id="contacts">
+      <div class="container footer-grid">
+        <div>
+          <a class="site-logo" href="index.html"> KeyboardShop® </a>
+          <p>
             Найди свой ритм.
-            <br/>
+            <br />
             Начни с первого нажатия.
           </p>
-</div>
-<nav aria-label="Навигация в подвале">
-<a href="catalog.html"> Каталог </a>
-<a href="order.html"> Оформить заявку </a>
-<a href="contacts.html#feedback"> Обратная связь </a>
-</nav>
-<div>
-<p class="eyebrow">В твоём ритме</p>
-<p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <a href="catalog.html"> Каталог </a>
+          <a href="order.html"> Оформить заявку </a>
+          <a href="contacts.html#feedback"> Обратная связь </a>
+        </nav>
+        <div>
+          <p class="eyebrow">В твоём ритме</p>
+          <p>
             Для работы, игр
-            <br/>
+            <br />
             и больших идей.
           </p>
-<a href="#top"> Вернуться наверх ↑ </a>
-</div>
-</div>
-<div class="container footer-bottom">
-<span> © 2026 KeyboardShop </span>
-<span> Каждое нажатие — твой характер. </span>
-</div>
-</footer>
-<p aria-live="polite" class="site-message" hidden="" id="site-message" role="status"></p>
-<noscript><p class="container notice">Для каталога и формы включите JavaScript в браузере.</p></noscript>
-<dialog aria-labelledby="quick-title" class="order-dialog product-dialog" id="product-dialog">
-<div class="dialog-heading"><h2 id="quick-title">Быстрый просмотр</h2><button aria-label="Закрыть окно" class="icon-button" data-close-dialog="" type="button">×</button></div>
-<img alt="" class="quick-image" data-quick-image="" height="500" width="800"/>
-<p class="eyebrow" data-quick-category=""></p><p data-quick-description=""></p>
-<p class="product-detail__price" data-quick-price=""></p><p data-quick-status=""></p>
-<div class="form-actions"><a class="button" data-quick-link="" href="product.html">Все характеристики ↗</a><a class="text-link" data-quick-order="" href="order.html">Оставить заявку</a></div>
-</dialog>
-</body>
+          <a href="#top"> Вернуться наверх ↑ </a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span> © 2026 KeyboardShop </span>
+        <span> Каждое нажатие — твой характер. </span>
+        <a href="https://github.com/TitaNik322/kr4-js-shop#фотографии">Источники фотографий</a>
+      </div>
+    </footer>
+    <p aria-live="polite" class="site-message" hidden="" id="site-message" role="status"></p>
+    <noscript
+      ><p class="container notice">
+        Для каталога и формы включите JavaScript в браузере.
+      </p></noscript
+    >
+    <dialog aria-labelledby="quick-title" class="order-dialog product-dialog" id="product-dialog">
+      <div class="dialog-heading">
+        <h2 id="quick-title">Быстрый просмотр</h2>
+        <button aria-label="Закрыть окно" class="icon-button" data-close-dialog="" type="button">
+          ×
+        </button>
+      </div>
+      <img alt="" class="quick-image" data-quick-image="" height="500" width="800" />
+      <p class="eyebrow" data-quick-category=""></p>
+      <p data-quick-description=""></p>
+      <p class="product-detail__price" data-quick-price=""></p>
+      <p data-quick-status=""></p>
+      <div class="form-actions">
+        <a class="button" data-quick-link="" href="product.html">Все характеристики ↗</a
+        ><a class="text-link" data-quick-order="" href="order.html">Оставить заявку</a>
+      </div>
+    </dialog>
+  </body>
 </html>
