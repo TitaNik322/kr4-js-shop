@@ -36,18 +36,18 @@ function createCartButton(product) {
 function addToCart(id) {
   const product = findProductById(products, id);
   if (!product?.isAvailable) {
-    showMessage('Эта клавиатура пока недоступна.');
+    showMessage('Эта клавиатура пока недоступна');
     return;
   }
   const item = shopState.cart.find((item) => item.productId === id);
   if (item?.quantity === 10) {
-    showMessage('Можно выбрать не больше 10 экземпляров одной модели.');
+    showMessage('Можно выбрать не больше 10 экземпляров одной модели');
     return;
   }
   if (item) item.quantity += 1;
   else shopState.cart.push({ productId: id, quantity: 1 });
   announceShopChange();
-  showMessage(`${product.title} добавлена в корзину.`);
+  showMessage(`${product.title} добавлена в корзину`);
 }
 
 function createCartRow(product, quantity) {
@@ -159,7 +159,7 @@ function changeCartQuantity(id, quantity) {
   const item = shopState.cart.find((item) => item.productId === id);
   if (!item) return;
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
-    showMessage('Количество должно быть целым числом от 1 до 10.');
+    showMessage('Количество должно быть целым числом от 1 до 10');
     renderCart();
     return;
   }
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (button.dataset.cartAction === 'remove') {
       shopState.cart = shopState.cart.filter((item) => item.productId !== id);
       announceShopChange();
-      showMessage('Клавиатура убрана из корзины.');
+      showMessage('Клавиатура убрана из корзины');
     } else {
       changeCartQuantity(id, item.quantity + (button.dataset.cartAction === 'plus' ? 1 : -1));
     }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#clear-cart').addEventListener('click', () => {
     shopState.cart = [];
     announceShopChange();
-    showMessage('Корзина очищена.');
+    showMessage('Корзина очищена');
     document.querySelector('#cart-empty a').focus();
   });
   document.querySelector('#promo-form').addEventListener('submit', (event) => {
@@ -205,11 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
     input.setAttribute('aria-invalid', String(!valid));
     document.querySelector('#promo-message').textContent = valid
       ? ''
-      : 'Промокод не найден. Попробуй KEY10.';
+      : 'Промокод не найден. Попробуй KEY10';
     if (!valid) return;
     shopState.promo = 'KEY10';
     announceShopChange();
-    showMessage('Промокод KEY10 применён: скидка 10%.');
+    showMessage('Промокод KEY10 применён: скидка 10%');
   });
   document.querySelector('#remove-promo').addEventListener('click', () => {
     shopState.promo = '';

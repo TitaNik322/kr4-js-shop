@@ -197,7 +197,7 @@ function initCatalog() {
     const valid = minimum.checkValidity() && maximum.checkValidity() && min <= max;
     document.querySelector('#filter-error').textContent = valid
       ? ''
-      : 'Укажи целые неотрицательные цены; верхняя граница не должна быть меньше нижней.';
+      : 'Укажи целые неотрицательные цены; верхняя граница не должна быть меньше нижней';
     minimum.setAttribute('aria-invalid', String(!valid));
     maximum.setAttribute('aria-invalid', String(!valid));
     if (!valid) return;

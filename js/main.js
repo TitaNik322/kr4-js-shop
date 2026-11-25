@@ -25,7 +25,7 @@ function getProductStatus(product) {
 }
 
 function createProductSummary(product) {
-  return `${product.title}: ${formatPrice(getProductPrice(product))}. ${getProductStatus(product)}.`;
+  return `${product.title}: ${formatPrice(getProductPrice(product))}. ${getProductStatus(product)}`;
 }
 
 // Общий способ создания узла: текст всегда остаётся текстом.
@@ -44,7 +44,7 @@ function showMessage(text) {
   message.textContent =
     storageAvailable || text.includes('вкладке')
       ? text
-      : `${text} Изменения останутся только в этой вкладке.`;
+      : `${text}. Изменения останутся только в этой вкладке`;
   message.hidden = false;
   messageTimer = setTimeout(() => {
     message.hidden = true;
@@ -135,12 +135,12 @@ function restoreShopState() {
       saved = raw === null ? null : JSON.parse(raw);
     } catch {
       localStorage.removeItem(storageKey);
-      showMessage('Повреждённые сохранённые данные сброшены. Можно начать заново.');
+      showMessage('Повреждённые сохранённые данные сброшены. Можно начать заново');
     }
     storageAvailable = true;
   } catch {
     storageAvailable = false;
-    showMessage('Хранилище браузера недоступно. Изменения останутся только в этой вкладке.');
+    showMessage('Хранилище браузера недоступно. Изменения останутся только в этой вкладке');
     return;
   }
   const result = { cart: [], favorites: [], promo: '', theme: 'light' };
@@ -177,7 +177,7 @@ function saveShopState() {
     storageAvailable = true;
   } catch {
     storageAvailable = false;
-    showMessage('Изменения действуют в этой вкладке; браузер не разрешил их сохранить.');
+    showMessage('Изменения действуют в этой вкладке; браузер не разрешил их сохранить');
   }
 }
 
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : [...shopState.favorites, id];
     announceShopChange();
     showMessage(
-      selected ? 'Клавиатура убрана из избранного.' : 'Клавиатура сохранена в избранном.',
+      selected ? 'Клавиатура убрана из избранного' : 'Клавиатура сохранена в избранном',
     );
   });
   window.addEventListener('storage', (event) => {

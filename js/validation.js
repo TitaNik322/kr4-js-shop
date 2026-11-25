@@ -4,38 +4,38 @@ function getFieldError(field) {
   if (field.disabled) return '';
   const value = field.value.trim();
   if (field.type === 'checkbox')
-    return field.required && !field.checked ? 'Подтверди согласие.' : '';
-  if (!value) return field.required ? 'Заполни это поле.' : '';
+    return field.required && !field.checked ? 'Подтверди согласие' : '';
+  if (!value) return field.required ? 'Заполни это поле' : '';
   if (field.name === 'name' && (value.length < 2 || value.length > 80))
-    return 'Имя должно содержать от 2 до 80 символов.';
+    return 'Имя должно содержать от 2 до 80 символов';
   if (
     field.name === 'email' &&
     (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || !field.checkValidity())
   )
-    return 'Проверь адрес электронной почты.';
+    return 'Проверь адрес электронной почты';
   if (field.name === 'phone') {
     const digits = value.replace(/\D/g, '');
     if (!/^[+\d\s()-]+$/.test(value) || !/^[78]\d{10}$/.test(digits))
-      return 'Нужны 11 цифр: +7 или 8 и ещё 10 цифр.';
+      return 'Нужны 11 цифр: +7 или 8 и ещё 10 цифр';
   }
   if (field.name === 'product') {
     if (value === 'cart')
       return getCartItems().length
         ? ''
-        : 'Корзина пуста. Добавь клавиатуру или выбери отдельную модель.';
+        : 'Корзина пуста. Добавь клавиатуру или выбери отдельную модель';
     const product = findProductById(products, Number(value));
-    if (!product?.isAvailable) return 'Выбери клавиатуру в наличии.';
+    if (!product?.isAvailable) return 'Выбери клавиатуру в наличии';
   }
   if (
     field.name === 'quantity' &&
     (!Number.isInteger(Number(value)) || Number(value) < 1 || Number(value) > 10)
   )
-    return 'Укажи целое количество от 1 до 10.';
+    return 'Укажи целое количество от 1 до 10';
   if (field.minLength > 0 && value.length < field.minLength)
-    return `Нужно не меньше ${field.minLength} символов.`;
+    return `Нужно не меньше ${field.minLength} символов`;
   if (field.maxLength > 0 && value.length > field.maxLength)
-    return `Допустимо не больше ${field.maxLength} символов.`;
-  if (!field.checkValidity()) return 'Проверь значение поля.';
+    return `Допустимо не больше ${field.maxLength} символов`;
+  if (!field.checkValidity()) return 'Проверь значение поля';
   return '';
 }
 
@@ -81,7 +81,7 @@ function updateOrderSummary(form) {
   order.items.forEach(({ product, quantity }) => {
     summary.append(createNode('p', '', `${product.title} × ${quantity}`));
   });
-  if (!order.items.length) summary.append(createNode('p', '', 'Клавиатура пока не выбрана.'));
+  if (!order.items.length) summary.append(createNode('p', '', 'Клавиатура пока не выбрана'));
   summary.append(createNode('p', '', `Товары: ${formatPrice(order.subtotal)}`));
   if (order.discount)
     summary.append(createNode('p', 'discount-line', `KEY10: −${formatPrice(order.discount)}`));
@@ -137,7 +137,7 @@ function initRequestForms() {
       if (requested !== null) {
         const selected = findProductById(products, Number(requested));
         if (selected?.isAvailable) select.value = String(selected.id);
-        else showMessage('Модель из ссылки недоступна. Выбери другую клавиатуру.');
+        else showMessage('Модель из ссылки недоступна. Выбери другую клавиатуру');
       }
       form.addEventListener('input', () => updateOrderSummary(form));
       form.addEventListener('change', () => updateOrderSummary(form));
@@ -146,7 +146,7 @@ function initRequestForms() {
         const dialog = document.querySelector('#confirm-dialog');
         if (dialog.open) {
           dialog.close();
-          status.textContent = 'Корзина или промокод изменились. Подготовь заявку заново.';
+          status.textContent = 'Корзина или промокод изменились. Подготовь заявку заново';
         }
       });
       document.querySelector('#order-fields').disabled = false;
@@ -168,7 +168,7 @@ function initRequestForms() {
         if (error && !firstInvalid) firstInvalid = field;
       });
       if (firstInvalid) {
-        status.textContent = 'Проверь отмеченные поля.';
+        status.textContent = 'Проверь отмеченные поля';
         firstInvalid.focus();
         return;
       }
@@ -217,7 +217,7 @@ function initRequestForms() {
           form.removeAttribute('aria-busy');
           form.reset();
           status.textContent =
-            'Сообщение подготовлено. Имитация завершена; данные не отправлялись на сервер.';
+            'Сообщение подготовлено. Имитация завершена; данные не отправлялись на сервер';
           status.focus();
         }, 650);
       }
@@ -232,7 +232,7 @@ function initRequestForms() {
       if (pendingSignature !== JSON.stringify(getOrderValues(form))) {
         confirmation.close();
         form.querySelector('.form-status').textContent =
-          'Состав заявки изменился. Проверь его ещё раз.';
+          'Состав заявки изменился. Проверь его ещё раз';
         return;
       }
       confirmButton.disabled = true;
@@ -246,7 +246,7 @@ function initRequestForms() {
         confirmation.close();
         const status = form.querySelector('.form-status');
         status.textContent =
-          'Заявка подготовлена. Имитация завершена; данные не отправлялись в магазин и не сохранялись.';
+          'Заявка подготовлена. Имитация завершена; данные не отправлялись в магазин и не сохранялись';
         status.focus();
       }, 650);
     });
